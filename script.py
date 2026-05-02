@@ -4,7 +4,7 @@ Small single-file Python script template with a short module-level
 docstring describing purpose and usage.
 
 Usage:
-    python script.py --name Alice
+    template --name Alice
 
 This file is intentionally minimal so it's easy to adapt for quick
 utility scripts or small command-line tasks.

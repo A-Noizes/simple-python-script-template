@@ -1,0 +1,15 @@
+[project]
+name = "simple_python_script"
+version = "0.1.0"
+description = "Simple Python script template"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [ { name = "Your Name", email = "you@example.com" } ]
+
+
+[project.scripts]
+simple-python-script = "script:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
