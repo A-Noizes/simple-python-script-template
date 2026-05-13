@@ -1,0 +1,21 @@
+[project]
+name = "{{ project_name }}"
+version = "{{ version }}"
+description = "{{ description | default('Small single-file Python script template with a short
+module-level docstring describing purpose and usage.') }}"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [ { name = "{{ author }}", email = "{{ email }}" } ]
+dependencies = [
+  {{ dependencies }}
+]
+
+
+[project.scripts]
+{{ terminal_command }} = "{{ project_name }}:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+

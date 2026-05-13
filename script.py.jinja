@@ -1,0 +1,34 @@
+"""
+{{ description | default('Small single-file Python script template with a short
+module-level docstring describing purpose and usage.')}}
+
+
+Usage:
+    python {{ project_name }}.py --name Alice
+
+Author: {{ author }}
+Created: {{ created }}
+Version: {{ version | default("1.0.0") }}
+"""
+
+from __future__ import annotations
+
+import argparse
+import sys
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="{{ description  | default('Small single-file Python script template with a short
+module-level docstring describing purpose and usage.') }}")
+    parser.add_argument("--name", "-n", default="A-Noizes", help="Name to greet")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    print(f"Hello, {args.name}!")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))

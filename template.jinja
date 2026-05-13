@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCRIPT_DIR=$( cd $(dirname "$0") && pwd)
+ROOT="${SCRIPT_DIR}/.."
+
+cd "$ROOT" &&
+exec {{ terminal_command }} "$@"
