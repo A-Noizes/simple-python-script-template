@@ -1,0 +1,56 @@
+# {{project_name}}
+
+{{description}}
+
+Quick start
+
+1. Initialize the project
+
+Run the Makefile target to prepare a local development environment and install the project and its dependencies:
+
+```bash
+make init
+```
+
+This command creates a local virtual environment (commonly `.venv`), installs the package and all declared Python dependencies into that environment, and configures the workspace for development and testing. 
+
+Makefile shortcuts
+
+Use `make <target>` from the repository root. Common targets include:
+
+- `make init`       — initialize project and set up `.venv`
+- `make install`    — install dependencies (using UV or pip as configured)
+- `make test`       — run the test suite with `pytest`
+- `make venv`       — create/refresh the `.venv` virtual environment
+- `make run`        — run the CLI in development mode (`uv python -m python_cli`)
+- `make run-module` — run a specific module: `make run-module MODULE=module_name`
+
+Examples
+
+```bash
+make env-create
+make install
+make test
+make run-module MODULE=module
+```
+
+Run the Script
+
+To run the packaged Script (release mode):
+
+```bash
+./{{project_name}} --help
+```
+
+Project structure overview
+
+- `{{project_name}}.py` — script
+- `{{project_name}}`    — entry point
+- `Makefile` — development shortcuts (env, install, test, run)
+
+
+
+License
+
+
+MIT
