@@ -1,0 +1,84 @@
+# {{ project_name }}
+
+{{description}}
+
+Quick start
+
+1. Initialize the project
+
+Use the Makefile shortcuts or Conda commands below to set up the development environment and install the package:
+
+Create the Conda environment from the provided manifest:
+
+```bash
+make env-create
+```
+
+Activate the environment and install the package in editable mode:
+
+```bash
+make init
+```
+
+What these steps do
+
+- `make env-create` creates a Conda environment using `environment.yml`.
+- `make init` activates the environment and installs the package and declared dependencies into it (equivalent to `pip install .` inside the activated environment).
+
+
+
+Common Makefile targets
+
+Run `make <target>` from the repository root. Important targets:
+
+- `make env-create`  — create Conda environment from `environment.yml`
+- `make env-update`  — update Conda environment (uses `--prune`)
+- `make init`        — install the package into the active environment
+- `make test`        — run the test suite with `pytest`
+- `make run`         — activate env and run CLI (`python -m <project_name>`)
+- `make run-module`  — run a specific module: `make run-module MODULE=module_name`
+
+Examples
+
+Create environment and install the package:
+
+```bash
+make env-create
+make init
+```
+
+Run tests:
+
+```bash
+make test
+```
+
+Run the Script
+
+To run the packaged Acript (release mode):
+
+```bash
+./{{project_name}} --help
+```
+
+
+Project structure overview
+
+- `{{project_name}}.py` — script
+- `{{project_name}}`    — entry point
+- `Makefile` — development shortcuts (env, install, test, run)
+
+
+Troubleshooting
+
+- If a Conda command fails, ensure Conda is initialized for your shell: `eval "$(conda shell.bash hook)"` or follow the instructions from your Conda distribution.
+- If `make init` does not activate the env automatically in your shell, activate manually: `conda activate {{project_name}}`.
+
+Contributing
+
+Contributions are welcome. Please open issues or PRs for fixes, documentation improvements, or new templates.
+
+License
+
+MIT
+

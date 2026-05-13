@@ -6,10 +6,6 @@ module-level docstring describing purpose and usage.') }}"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [ { name = "{{ author }}", email = "{{ email }}" } ]
-dependencies = [
-  {{ dependencies }}
-]
-
 
 [project.scripts]
 {{ terminal_command }} = "{{ project_name }}:main"

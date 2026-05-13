@@ -5,5 +5,20 @@ set -e
 SCRIPT_DIR=$( cd $(dirname "$0") && pwd)
 ROOT="${SCRIPT_DIR}/.."
 
-cd "$ROOT" &&
+YML=$(find "$ROOT" -name "*yml")
+if [[ -z "$YML" ]]; then
+    echo "ERROR: Conda \"environment.yml\" not found!"
+    exit 1
+fi
+
+ENV_NAME=$(cat "$YML" | head -n 1 | cut -d ":" -f 2 | tr -d ' ')
+ENV=$(conda env list | grep "$ENV_NAME" | awk '{print $2}')
+if [[ -z "$ENV" ]]; then
+    echo "ERROR: Conda environment \"${ENV}\" not found!"
+    exit 1
+fi
+
+eval "$(conda shell.bash hook)" &&
+conda activate $ENV &&
+cd "$ROOT" && 
 exec {{ terminal_command }} "$@"

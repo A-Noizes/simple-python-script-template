@@ -1,23 +1,25 @@
 PYTHON=python
-UV=uv
-TOML=pyproject.toml
+ENV_FILE=environment.yml
 
-.PHONY: install test venv init run 
+.PHONY: env-create env-update install run init
+
+env-create:
+	conda env create -f $(ENV_FILE)
+
+env-update:
+	conda env update -f $(ENV_FILE) --prune
 
 install:
-	$(UV) pip install -r $(TOML)
+	eval "$(conda shell.bash hook)" 
+	conda activate {{ project_name }}
+	$(PYTHON) -m pip install -e .
 
-test:
-	pytest -q 
-
-venv:
-	$(UV) venv .
-
-init: 
-	$(UV) venv .
-	$(UV) pip install -r $(TOML)
+init:
+	eval "$(conda shell.bash hook)" 
+	conda activate {{ project_name }}
+	$(PYTHON) -m pip install .
 
 run:
-	$(UV) sync
-	$(UV) run {{ terminal_command }}
-
+	eval "$(conda shell.bash hook)" 
+	conda activate {{ project_name }}
+	$(PYTHON) -m {{ project_name }}
