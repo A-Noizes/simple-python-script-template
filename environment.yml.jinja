@@ -1,0 +1,11 @@
+name: {{ project_name }}
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - -e .
+    - pytest
+    - setuptools
+  {{ dependencies }}

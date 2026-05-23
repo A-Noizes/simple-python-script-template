@@ -18,8 +18,7 @@ import sys
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="{{ description  | default('Small single-file Python script template with a short
-module-level docstring describing purpose and usage.') }}")
+    parser = argparse.ArgumentParser(description="{{ description  | default('Small single-file Python script template with a short module-level docstring describing purpose and usage.') }}")
     parser.add_argument("--name", "-n", default="A-Noizes", help="Name to greet")
     return parser.parse_args(argv)
 
