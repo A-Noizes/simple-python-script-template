@@ -11,10 +11,10 @@ test:
 	pytest -q 
 
 venv:
-	$(UV) venv .
+	$(UV) venv 
 
 init: 
-	$(UV) venv .
+	$(UV) venv 
 	$(UV) pip install -r $(TOML)
 
 run:

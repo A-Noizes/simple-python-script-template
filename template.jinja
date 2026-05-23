@@ -2,8 +2,7 @@
 
 set -e
 
-SCRIPT_DIR=$( cd $(dirname "$0") && pwd)
-ROOT="${SCRIPT_DIR}/.."
+ROOT=$( cd $(dirname "$0") && pwd)
 
 cd "$ROOT" &&
-exec {{ terminal_command }} "$@"
+uv run {{ terminal_command }} "$@"
