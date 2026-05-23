@@ -18,6 +18,5 @@ if [[ -z "$ENV" ]]; then
 fi
 
 eval "$(conda shell.bash hook)" &&
-conda activate $ENV &&
 cd "$ROOT" && 
-python3 {{ terminal_command }} "$@"
+conda run -n {{ project_name }} python -m {{ project_name }} "$@"
